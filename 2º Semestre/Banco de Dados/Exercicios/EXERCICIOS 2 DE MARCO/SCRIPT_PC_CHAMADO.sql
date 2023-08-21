@@ -1,0 +1,23 @@
+drop database if exists exercicio01;
+
+create database exercicio01;
+
+use exercicio01;
+
+CREATE TABLE PC (
+IDPC INT NOT NULL,
+MARCA varchar(45),
+MODELO varchar(45),
+PRIMARY KEY (IDPC)
+);
+
+CREATE TABLE CHAMADO (
+IDCHAMADO INT NOT NULL,
+NOME varchar(100),
+DESCRICAO varchar(160),
+DATA_DIA DATE,
+HORA TIME,
+IDPC INT,
+PRIMARY KEY (IDCHAMADO),
+FOREIGN KEY (IDPC) REFERENCES PC (IDPC)
+);

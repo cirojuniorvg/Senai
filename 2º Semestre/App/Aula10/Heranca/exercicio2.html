@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+//nome (texto), comprimento (int), patas (int), cor (texto),
+//ambiente (texto) e velocidade (float) 
+
+class Animal{
+    constructor(nome, comprimento, patas, cor, ambiente, velocidade){
+        
+        this.nome = nome
+        this.comprimento = comprimento
+        this.patas = patas
+        this.cor = cor
+        this.ambiente = ambiente
+        this.velocidade = velocidade
+    }
+
+    AlterarNome(nome){
+        this.nome = nome
+    }  
+    AlterarComprimento(comprimento){
+        this.comprimento
+    }
+    AlterarPatas(patas){
+        this.patas
+    }
+    AlterarCor(cor){
+        this.cor
+    }
+    AlterarAmbiente(ambiente){
+        this.ambiente
+    }
+    AlterarVelocidade(velocidade){
+        this.velocidade
+    }
+    Dados(){
+        //console.table(animal)
+        console.log('Nome:' + this.nome + '\nComprimento: '+ this.comprimento)
+    }
+}
+
+class Peixe extends Animal {
+    constructor(nome, comprimento, patas, cor, ambiente, velocidade, caracteristica){
+        //Precisa iniciar os atributos
+        super(nome, comprimento, patas, cor, ambiente, velocidade, caracteristica)
+        this.caracteristica = caracteristica
+    }
+    AlterarCaracteritica(caracteristica){
+        this.caracteristica = caracteristica
+    }
+    BuscarCaracteristica(){
+        return this.caracteristica
+    }
+    Dados(){
+        console.log('Nome: '+ this.nome + '\nCaracteristicas: '+ this.caracteristica)
+    }
+}
+
+class Mamifero extends Animal {
+    constructor(nome, comprimento, patas, cor, ambiente, velocidade, alimento){
+        //Precisa iniciar os atributos
+        super(nome, comprimento, patas, cor, ambiente, velocidade, alimento)
+        this.alimento = alimento
+    }
+    AlterarAlimento(alimento){
+        this.alimento = alimento
+    }
+    BuscarAlimento(){
+        return this.alimento
+    }
+    Dados(){
+        console.log('Nome: '+ this.nome + '\nAlimento: '+ this.alimento)
+    }
+}
+
+let camelo = new Animal('Camelo', 150, 4, 'Amarelo', 'Terra', 2.0)
+camelo.Dados()
+
+let tubarao = new Peixe('Tubarão', 300, 0, 'Cinza', 'Oceano', 1.5, 'Barbatanas')
+tubarao.Dados()
+
+let urso = new Mamifero('Urso', 180, 4, 'Marrom', 'Terra', 0.5, 'Mel')
+urso.Dados()
+
+    </script>
+</body>
+</html>

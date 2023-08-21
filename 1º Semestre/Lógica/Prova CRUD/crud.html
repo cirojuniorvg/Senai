@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="crud.css">
+</head>
+<body>
+
+    <div>
+
+        <div id="cadastro">
+
+            <h1>Cadastro</h1><br><br>
+            <label>Produto</label><br>
+            <input id="inpProduto"><br><br>
+            <label>Marca</label><br><br>
+            <input id="inpMarca"><br><br>
+            <label>Valor</label><br>
+            <input id="inpValor"><br><br>
+            <button onclick="Cadastrar()">CADASTRAR</button><br><br>
+            <button onclick="Lista()">Lista de Produtos</button>
+
+        </div>
+
+        <div id="alterar-valor">
+
+            <label>Produto</label><br>
+            <input id="inpAlterarProduto"><br><br>
+            <label>Alterar Valor</label><br>
+            <input id="inpAlterarValor"><br><br>
+            <button onclick="AlterarValor()">ALTERAR VALOR</button><br><br>
+
+        </div>
+
+        <div id="deletar">
+
+            <label>Deletar Produto</label><br>
+            <input id="inpDeletar"><br><br>
+            <button onclick="Deletar()">Deletar Produto</button><br><br>
+
+        </div>
+
+        <div id="Lista">
+            <label>Lista de produtos</label><br><br>
+        </div>
+
+    </div>
+
+        <script src="crud.js"></script>
+
+</body>
+</html>

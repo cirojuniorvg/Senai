@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        class Cinema{
+            constructor(filme, ingresso){
+            this.filme = filme
+            this.ingresso = ingresso
+        }
+
+        Interira(){
+            console.log('Filme: ' + this.filme + '\nValor: R$' + this.ingresso)
+        }
+
+        Meia(){
+            this.ingresso = (this.ingresso)/2
+            console.log('Filme: ' + this.filme + '\nValor: R$' + this.ingresso)
+        }
+    }
+
+    class Combo extends Cinema{
+        constructor(filme, ingresso, pipoca, refri){
+            super(filme, ingresso, pipoca, refri)
+            this.pipoca = pipoca
+            this.refri = refri
+        }
+
+        ComboPipoca(){
+        this.ingresso = (this.ingresso)/2 + this.pipoca
+        console.log('Filme: ' + this.filme + '\nValor: R$' + this.ingresso)
+        }
+
+
+        ComboRefri(){
+            this.ingresso = this.ingresso + this.refri
+            console.log('Filme: ' + this.filme + '\nValor: R$' + this.ingresso)
+        }
+
+        ComboMaster(){
+        this.ingresso = (this.ingresso)/2 + this.pipoca + this.refri
+        console.log('Filme: ' + this.filme + '\nValor: R$' + this.ingresso)
+        }
+}
+
+    let starWars = new Cinema('Star Wars', 40)
+    starWars.Meia()
+
+    let avatar = new Combo('Avatar', 40, 25, 15)
+    avatar.ComboMaster()
+
+
+    </script>
+</body>
+</html>

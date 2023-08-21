@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoKemPô</title> 
+    <link rel="stylesheet" href="jogo.css">
+
+</head>
+<body>
+
+    <div id="container">
+
+        
+        <div id="cima">
+
+            <label id="lbTitulo">Bem-Vindo ao JoKenPô</label>
+
+        </div>
+       
+        <div id="meio">
+
+            <div id="meio-cima">
+                
+                <label class="lbPlayers" id="lbPlayer">Jogador</label>
+                <label id="lbRodadas">[ Rodadas ]</label>
+                <label class="lbPlayers" id="lbSistema">Sistema</label>
+                
+            </div>
+
+            <div id="meio-meio">
+                
+                <img id="imgJogador" src="Imagens/frame-player.png" onclick="trocaImagem()">
+                <label id="xis">X</label>
+                <img id="imgSistema" src="Imagens/frame-sistema.png">
+
+            </div>
+
+            <div id="meio-baixo">
+
+                <button class="btn" id="btnJogar" onclick="Jogar()" >Jogar</button>
+                <button class="btn" id="btnReiniciar" onclick="Reiniciar()">Reiniciar</button>
+                
+            </div>
+            
+        </div>
+        
+        <div id="baixo">
+
+            <div id="baixo-esquerda">
+
+                <label class="lbBaixoEsquerdaMeio" id="lbJogadorPts">Jogador = 0</label>
+                <label class="lbBaixoEsquerdaMeio" id="lbSistemaPts">Sistema = 0</label>
+                
+            </div>
+
+            <div id="baixo-meio">
+
+                <label class="lbBaixoEsquerdaMeio" id="lbResultado">[ Resultado ]</label>
+
+            </div>
+
+            <div id="baixo-direita">
+                
+                <img id="senaiLogo" src="Imagens/Senai-Logo.png">
+                <audio id="somConfirma" src="Audio/confirm.wav"></audio>
+                <audio id="somSeleciona" src="Audio/select.wav"></audio>
+
+            </div>
+            
+        </div>
+
+  
+    </div>
+
+
+    <script src="jogo.js"></script>
+
+</body>
+</html>

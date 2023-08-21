@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        class Ninja{
+            constructor(nome, shuriken, vivo){
+                this.nome = nome
+                this.shuriken = shuriken
+                this.vivo = vivo
+            }
+
+            AtirarShuriken(inimigo){
+
+                if(this.shuriken > 0){
+                //this.shuriken = this.shuriken - 1
+                //this.shuriken -= 1
+                this.shuriken--
+
+                console.log('til til til')
+                inimigo.vivo = false
+                console.log('Game Over')
+            }else{
+                console.log('Correr!!! ')
+            }
+        }
+    }
+
+        let naruto = new Ninja('Naruto', 3, true)
+        //console.table(naruto)
+
+        let sasuke = new Ninja('Sasuke', 2, true)
+        //console.table(sasuke)
+
+        //naruto.AtirarShuriken(sasuke)
+        //console.table(naruto)
+        //console.table(sasuke)
+
+        if(naruto instanceof Ninja)
+            console.log('Positivo')
+        else
+            console.log('Negativo')
+
+
+
+
+    </script>
+    
+</body>
+</html>

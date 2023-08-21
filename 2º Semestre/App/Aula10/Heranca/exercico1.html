@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Produto{
+            constructor(nome, preco){
+            this.nome = nome
+            this.preco = preco
+        }
+        Dados(){
+            console.log(`Nome: ` + this.nome + `\nPreco: R$` + this.preco)
+        }
+}
+
+    class Importado extends Produto{
+        constructor(nome, preco, taxa){
+            super(nome, preco, taxa)
+            this.taxa = taxa
+           
+        }
+        InserirTaxa(){
+            this.preco = this.preco + this.taxa
+        }
+
+        Dados(){
+            console.log(`Nome: ` + this.nome + `\nPreco: R$` + this.preco + `\nTaxa: R$` + this.taxa)
+        }
+    }
+
+    class Usado extends Produto{
+        constructor(nome, preco, data){
+            super(nome, preco, data)
+            this.data = data
+        }
+        Dados(){
+            console.log(`Nome: ` + this.nome + `\nPreco: R$` + this.preco + `\nData de Fabricacao: ` + this.data )
+        }
+    }
+
+    let tablet = new Importado(`Tablet`, 260, 20)
+    tablet.InserirTaxa()
+    tablet.Dados()
+
+    let notebook = new Produto(`Notebook` , 1100)
+    notebook.Dados()
+
+    let iphone = new Usado(`Iphone`, 400, `01 de Janeiro de 2019`)
+    iphone.Dados()
+
+    </script>
+</body>
+</html>

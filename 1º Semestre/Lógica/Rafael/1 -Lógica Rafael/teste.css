@@ -1,0 +1,10 @@
+div{
+border: 2px solid rgb(255, 0, 0);
+margin: 5px ;
+background-color: rgb(106, 245, 233);
+}
+#campoDigitar
+{
+    width: 98.9%;
+    height: 19px;
+}
