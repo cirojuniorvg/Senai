@@ -1,0 +1,15 @@
+.exFilter{
+    background-color: rgb(175, 132, 231);
+    margin: 10px;
+    color: rgb(255, 230, 0);
+    border: 1px rgb(255, 0, 0)
+
+}
+
+.exForEach{
+    background-color: rgb(51, 255, 0);
+    margin: 10px;
+    color: rgba(255, 0, 0, 0.856);
+    border: 1px rgb(255, 0, 0)
+
+}
