@@ -1,23 +1,30 @@
 package POO;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Carro {
-    private String cor;
+    private Cor cor;
     private String marca;
     private String modelo;
     private Integer velocidadeMaxima;
+    private LocalDate ultimaRevisao;
+    private LocalDateTime criacao = LocalDateTime.now() ;
 
     public Carro(){}
 
-    public Carro(String cor, String marca, String modelo, Integer velocidadeMaxima){
+    public Carro(Cor cor, String marca, String modelo, Integer velocidadeMaxima ){
         this.cor = cor;
         this.marca = marca;
         this.modelo = modelo;
         this.velocidadeMaxima = velocidadeMaxima;
     }
     
-    public void setCor(String cor){
+    public void setCor(Cor cor){
         this.cor = cor;
     }
+
 
     public void setMarca(String marca){
         this.marca = marca;
@@ -31,7 +38,7 @@ public class Carro {
         this.velocidadeMaxima = velocidadeMaxima;
     }
 
-    public String getCor(){
+    public Cor getCor(){
         return cor;
     }
 
@@ -47,9 +54,21 @@ public class Carro {
         return velocidadeMaxima;
     }
 
-    // @Override
-    
-    // public int hashCode(){}
+        public LocalDate getUltimaRevisao() {
+        return ultimaRevisao;
+    }
+
+    public void setUltimaRevisao(LocalDate ultimaRevisao) {
+        this.ultimaRevisao = ultimaRevisao;
+    }
+
+    public LocalDateTime getCriacao() {
+        return criacao;
+    }
+
+    public void setCriacao(LocalDateTime criacao) {
+        this.criacao = criacao;
+    }
 
         public boolean equals(Carro carro){
             if (carro.getMarca() == this.marca &&
@@ -64,8 +83,17 @@ public class Carro {
 
         @Override
         public String toString() {
-            return "Carro [cor=" + cor + ", marca=" + marca + ", modelo=" + modelo + ", velocidadeMaxima="
-                    + velocidadeMaxima + "]";
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+                "dd/MM/yyyy HH:mm:ss"
+                );
+                String criacaoString = formatter.format(criacao);
+
+            return "Carro [cor=" + cor + 
+                    ", marca=" + marca + 
+                    ", modelo=" + modelo + 
+                    ", velocidadeMaxima="+ velocidadeMaxima + 
+                    ", ultimaRevisao=" + ultimaRevisao +
+                    ", criacao=" + criacaoString + "]";
         }
 
        // public String toString(){

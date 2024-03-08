@@ -3,7 +3,7 @@ package POO;
 public class Main {
     public static void main(String[] args) {
         // Utilizando o construtor parcial
-        Carro corsa = new Carro("Amarelo", "Corsa","Chevorlet", 100);
+        Carro corsa = new Carro(Cor.PRETO, "Corsa","Chevorlet", 100);
        // corsa.setCor("Amarelo");
        // corsa.setModelo("Corsa");
        // corsa.setVelocidadeMaxima(100);
@@ -21,7 +21,7 @@ public class Main {
 
         // Atribuindo os valores ao objeto
 
-        celta.setCor("Amarelo");
+        celta.setCor(Cor.PRETO);
         celta.setModelo("Corsa");
         celta.setVelocidadeMaxima(100);
         System.out.printf(

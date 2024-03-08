@@ -12,6 +12,8 @@ public class Atividade6 {
             System.out.println(quantidadePalavras);
         }
         System.out.println("Aquantidade de palavras é de:" + quantidade.length);
+
+        scan.close();
     }    
 
 }

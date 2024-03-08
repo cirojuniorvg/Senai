@@ -12,6 +12,8 @@ public class Strings {
             System.err.println("Ocorreu um erro, número invalido");
         }
 
+        scan.close();
+
         //String string = scan.nextLine();
         //String string2 = string.toUpperCase();
         //String string3 = string.concat(string2);
