@@ -1,8 +1,10 @@
 package Polimorfismo;
 
-public class Gato {
+public class Gato implements Animal {
     
     @Override
-    public void emiteSom();
-    System.out.println("MIAU");
+    public void emiteSom(){
+        System.out.println("MIAU");
+    }
+    
 }
