@@ -5,14 +5,16 @@ import java.time.LocalDateTime;
 public class SensorRead {
     private Float value;
     private LocalDateTime date;
+    private Sensor sensor;
     
     public SensorRead(){
 
     }
 
-    public SensorRead(Float value, LocalDateTime date) {
+    public SensorRead(Float value, LocalDateTime date, Sensor sensor) {
         this.value = value;
         this.date = date;
+        this.sensor = sensor;
     }
 
     public Float getValue() {
@@ -31,9 +33,17 @@ public class SensorRead {
         this.date = date;
     }
 
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
+    }
+
     @Override
     public String toString() {
-        return "SensorRead [value=" + value + ", date=" + date + "]";
+        return "SensorRead [value=" + value + ", date=" + date + ", sensor=" + sensor + "]";
     }
 
     @Override
@@ -42,6 +52,7 @@ public class SensorRead {
         int result = 1;
         result = prime * result + ((value == null) ? 0 : value.hashCode());
         result = prime * result + ((date == null) ? 0 : date.hashCode());
+        result = prime * result + ((sensor == null) ? 0 : sensor.hashCode());
         return result;
     }
 
@@ -64,7 +75,13 @@ public class SensorRead {
                 return false;
         } else if (!date.equals(other.date))
             return false;
+        if (sensor == null) {
+            if (other.sensor != null)
+                return false;
+        } else if (!sensor.equals(other.sensor))
+            return false;
         return true;
     }
+
     
 }

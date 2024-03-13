@@ -4,14 +4,18 @@ import java.util.List;
 
 public class CombatTeam {
     private Integer numberMembers;
+    private Leader leader;
+    private ParkAdress parkAdress;
     private List <User> list;
 
     public CombatTeam(){
         
     }
 
-    public CombatTeam(Integer numberMembers, List<User> list) {
+    public CombatTeam(Integer numberMembers, Leader leader, ParkAdress parkAdress, List<User> list) {
         this.numberMembers = numberMembers;
+        this.leader = leader;
+        this.parkAdress = parkAdress;
         this.list = list;
     }
 
@@ -21,6 +25,22 @@ public class CombatTeam {
 
     public void setNumberMembers(Integer numberMembers) {
         this.numberMembers = numberMembers;
+    }
+
+    public Leader getLeader() {
+        return leader;
+    }
+
+    public void setLeader(Leader leader) {
+        this.leader = leader;
+    }
+
+    public ParkAdress getParkAdress() {
+        return parkAdress;
+    }
+
+    public void setParkAdress(ParkAdress parkAdress) {
+        this.parkAdress = parkAdress;
     }
 
     public List<User> getList() {
@@ -33,7 +53,8 @@ public class CombatTeam {
 
     @Override
     public String toString() {
-        return "CombatTeam [numberMembers=" + numberMembers + ", list=" + list + "]";
+        return "CombatTeam [numberMembers=" + numberMembers + ", leader=" + leader + ", parkAdress=" + parkAdress
+                + ", list=" + list + "]";
     }
 
     @Override
@@ -41,6 +62,8 @@ public class CombatTeam {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((numberMembers == null) ? 0 : numberMembers.hashCode());
+        result = prime * result + ((leader == null) ? 0 : leader.hashCode());
+        result = prime * result + ((parkAdress == null) ? 0 : parkAdress.hashCode());
         result = prime * result + ((list == null) ? 0 : list.hashCode());
         return result;
     }
@@ -59,6 +82,16 @@ public class CombatTeam {
                 return false;
         } else if (!numberMembers.equals(other.numberMembers))
             return false;
+        if (leader == null) {
+            if (other.leader != null)
+                return false;
+        } else if (!leader.equals(other.leader))
+            return false;
+        if (parkAdress == null) {
+            if (other.parkAdress != null)
+                return false;
+        } else if (!parkAdress.equals(other.parkAdress))
+            return false;
         if (list == null) {
             if (other.list != null)
                 return false;
@@ -66,7 +99,7 @@ public class CombatTeam {
             return false;
         return true;
     }
-    
+
     
 
 }

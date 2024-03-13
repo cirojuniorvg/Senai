@@ -12,11 +12,11 @@ public class Main {
         List<User> lista = new ArrayList<User>();
         lista.add(leader);
         lista.add(user);
-        CombatTeam combatTeam = new CombatTeam(2, lista);
+        CombatTeam combatTeam = new CombatTeam(2, leader, parkAdress, lista);
         Image image = new Image("link", LocalDateTime.now(), "Satélite Flamengo");
         Sensor sensor = new Sensor(-27.5f, 48.42f, SensorStatus.OPERATIONAL, "Temperatura Sensor");
-        SensorRead sensorRead = new SensorRead(22.4f, LocalDateTime.now());
-        FireSpot fireSpot = new FireSpot(LocalDateTime.now(), LocalDateTime.now(), "Indefinido", Identification.SATELLITE, Intensity.LOW);
+        SensorRead sensorRead = new SensorRead(22.4f, LocalDateTime.now(), sensor);
+        FireSpot fireSpot = new FireSpot(LocalDateTime.now(), LocalDateTime.now(), "Indefinido", Identification.SATELLITE, Intensity.LOW, parkAdress, image, sensor, user, Status.EXTINCT);
 
         System.out.println(user.toString());
         System.out.println(leader.toString());
