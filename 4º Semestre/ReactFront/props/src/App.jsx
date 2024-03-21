@@ -1,5 +1,5 @@
 import './App.css'
-import Pessoa from '../components/Pessoa'
+import Pessoa from './components/Pessoa'
 
 function App() {
   
