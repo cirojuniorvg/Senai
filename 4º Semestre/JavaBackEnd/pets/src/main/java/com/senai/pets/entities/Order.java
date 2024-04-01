@@ -1,6 +1,7 @@
 package com.senai.pets.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.senai.pets.entities.enums.OrderStatus;
 
@@ -20,7 +21,8 @@ public class Order {
     private Long id;
     @Column()
     private Integer quantity;
-    private LocalDateTime shipDtae;
+    private LocalDateTime shipDate;
     private OrderStatus status;
     private Boolean complete;
+    private List<User> users;
 }
