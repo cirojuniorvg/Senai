@@ -4,10 +4,12 @@ import java.util.List;
 
 import com.senai.pets.entities.enums.Status;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +31,6 @@ public class Pet {
     private Order order;
     @ManyToOne
     private Category category;
-
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Tag> tags;
 }

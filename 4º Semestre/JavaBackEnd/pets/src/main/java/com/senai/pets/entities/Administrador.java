@@ -5,16 +5,17 @@ import com.senai.pets.entities.enums.Office;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+//import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @AllArgsConstructor
 @Entity
-public class Administrador {
-    @Id
-    private Long id;
+@Data @NoArgsConstructor @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class Administrador extends User {
+
     private Boolean isAdmin;
     @Enumerated(EnumType.STRING)
     private Office office;
