@@ -3,6 +3,8 @@ package com.senai.pets.entities;
 import com.senai.pets.entities.enums.UserStatus;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
@@ -14,7 +16,8 @@ import lombok.NoArgsConstructor;;
 
 @Data @NoArgsConstructor @AllArgsConstructor 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER)
 public class User {
     @Id
     private Long id;
