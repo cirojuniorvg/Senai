@@ -16,17 +16,20 @@ import com.senai.pets.dtos.user.UserInput;
 import com.senai.pets.dtos.user.UserOutput;
 import com.senai.pets.entities.User;
 import com.senai.pets.repositories.UserRepository;
+import com.senai.pets.services.UserService;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
 public class UserContorller {
+
     @Autowired
-    private UserRepository repository;
+    private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<User>> list(){
-        List<User> list = repository.findAll();
+    public ResponseEntity<List<UserOutput>> list(){
+        List<UserOutput> list = service.list();
         //return new ResponseEntity(list, HttpStatus.OK);
         return ResponseEntity.ok(list);
         
@@ -34,44 +37,36 @@ public class UserContorller {
     
     @PostMapping
     public ResponseEntity<UserOutput> create(@RequestBody UserInput user){
-        User userToSave = new User();
-        userToSave.setEmail(user.getEmail());
-        userToSave.setUsername(user.getUsername());
-        userToSave.setPassword(user.getPassword());
-        userToSave.setFirstName(user.getFirstName());
-        userToSave.setLastName(user.getLastName());
-        userToSave.setPhone(user.getPhone());
-    
-       User userSaved = repository.save(userToSave);
-
-       UserOutput output = new UserOutput(
-        userSaved.getId(), 
-        userSaved.getUsername(), 
-        userSaved.getFirstName(), 
-        userSaved.getLastName(), 
-        userSaved.getEmail(), 
-        userSaved.getUserStatus());
+        UserOutput output = service.create(user);
 
        return new ResponseEntity(output, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> read(@PathVariable Long id){
-        User user = repository.findById(id).get();
+    public ResponseEntity<UserOutput> read(@PathVariable Long id){
+        UserOutput user = service.read(id);
+        if(user == null){
+            return ResponseEntity.notFound().build();
+        }
         //return new ResponseEntity(user, HttpStatus.OK);
         return ResponseEntity.ok(user);
     }
 
-    @PutMapping
-    public ResponseEntity<User> update(@RequestBody User user){
-        User userUpdated = repository.save(user);
+    @PutMapping("/(id)")
+    public ResponseEntity<UserOutput> update(
+        @PathVariable Long id, @RequestBody UserInput user
+        ){
+       UserOutput output = service.update(id, user);
+       if(output == null){
+        return ResponseEntity.notFound().build();
+       }
         //return new ResponseEntity(user, HttpStatus.OK);
-        return ResponseEntity.ok(userUpdated);
+        return ResponseEntity.ok(output);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Long id){
-        repository.deleteById(id);
+        service.delete(id);
         //return new ResponseEntity(user, HttpStatus.CONTENT);
         return ResponseEntity.noContent().build();
     }
