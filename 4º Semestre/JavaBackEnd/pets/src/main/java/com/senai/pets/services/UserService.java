@@ -3,6 +3,10 @@ package com.senai.pets.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
 import com.senai.pets.dtos.user.UserInput;
@@ -23,9 +27,17 @@ public class UserService {
         return convertUserToOutput(user);
     }
 
-    public List<UserOutput> list(){
+    public List<UserOutput> list(Pageable page, User userExample){
+
+        ExampleMatcher matcher = ExampleMatcher
+            .matchingAny()
+            .withIgnoreCase()
+            .withStringMatcher(StringMatcher.CONTAINING);
+
+            Example example = Example.of(userExample, matcher);
+
         return repository
-        .findAll()
+        .findAll(page)
         .stream()
         .map(u -> convertUserToOutput(u))
         .toList();
