@@ -5,13 +5,13 @@ function SearchBar({ onSearch }) {
     onSearch(e.target.value);
   };
 
-  return (
-    <input
-      type="text"
-      onChange={handleSearch}
-      placeholder="Pesquisar receita"
-    />
-  );
+ return (
+   <input
+     type="text"
+     onChange={handleSearch}
+     placeholder="Pesquisar receita"
+   />
+ );
 }
 
 export default SearchBar;
