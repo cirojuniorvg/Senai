@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      
+
       <RecipeForm onSave={addRecipe} />
       <RecipeList
         recipes={recipes.filter(recipe => recipe.name.includes(searchQuery))}

@@ -7,12 +7,12 @@ class RecipeList extends React.Component {
     super(props);
     this.state = {
       recipes: [
-        { id: 1, name: 'Bolo de Cenoura', description: 'Um bolo delicioso e fácil de fazer.', ingredients: [] },
-        { id: 2, name: 'Torta de Limão', description: 'Refrescante e cremosa.', ingredients: [] },
+        { id: 1, name: 'Bolo de Cenoura', description: 'Um bolo delicioso e fácil de fazer.', ingredients: [{name: 'Cenoura', quantity: '2', unit: 'unidades'}] },
+        { id: 2, name: 'Torta de Limão', description: 'Refrescante e cremosa.', ingredients: [{name: 'Limão', quantity: '3', unit: 'unidades'}] },
       ],
       newRecipeName: '',
       newRecipeDescription: '',
-      newIngredients: [{ name: '', quantity: '', unit: '' }],  // Adicionado 'unit' para unidade do ingrediente
+      newIngredients: [{ name: '', quantity: '', unit: '' }],
       searchQuery: ''
     };
   }
@@ -47,8 +47,12 @@ class RecipeList extends React.Component {
   }
 
   handleIngredientChange = (index, field, value) => {
-    const newIngredients = [...this.state.newIngredients];
-    newIngredients[index][field] = value;
+    const newIngredients = this.state.newIngredients.map((ingredient, i) => {
+        if (i === index) {
+            return { ...ingredient, [field]: value };
+        }
+        return ingredient;
+    });
     this.setState({ newIngredients });
   }
 
@@ -56,6 +60,10 @@ class RecipeList extends React.Component {
     this.setState(prevState => ({
       newIngredients: [...prevState.newIngredients, { name: '', quantity: '', unit: '' }]
     }));
+  }
+
+  handleSearch = (query) => {
+    this.setState({ searchQuery: query });
   }
 
   render() {

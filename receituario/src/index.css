@@ -1,0 +1,64 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  input, button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #5c67f2;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #4a54e1;
+  }
+  
+  input {
+    width: calc(100% - 22px);
+  }
+
+  .recipe-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .recipe-item {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 80%;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+
+  .ingredients-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ingredients-list li {
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+  }
+  
+
+  .add-recipe-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+  }
+  
