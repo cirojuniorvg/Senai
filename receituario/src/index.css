@@ -61,4 +61,31 @@ body {
     margin-bottom: 20px;
     background-color: white;
   }
+
+  .delete-button {
+    background-color: #ff4d4d; /* Vermelho para o botão Deletar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff3333; /* Um vermelho mais escuro no hover */
+  }
+  
+  .edit-button {
+    background-color: #4CAF50; /* Verde para o botão Editar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover {
+    background-color: #45a049; /* Um verde mais escuro no hover */
+  }
   

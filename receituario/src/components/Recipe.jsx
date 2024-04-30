@@ -77,8 +77,8 @@ function Recipe({ recipe, onDelete, onUpdate }) {
           </li>
         ))}
       </ul>
-      <button onClick={() => onDelete(recipe.id)}>Deletar</button>
-      <button onClick={handleEdit}>Editar</button>
+      <button  className="delete-button" onClick={() => onDelete(recipe.id)}>Deletar</button>
+      <button  className="edit-button" onClick={handleEdit}>Editar</button>
     </div>
   );
 }
