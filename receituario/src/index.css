@@ -63,7 +63,7 @@ body {
   }
 
   .delete-button {
-    background-color: #ff4d4d; /* Vermelho para o botão Deletar */
+    background-color: #ff4d4d; 
     color: white;
     border: none;
     padding: 10px 15px;
@@ -73,11 +73,11 @@ body {
   }
   
   .delete-button:hover {
-    background-color: #ff3333; /* Um vermelho mais escuro no hover */
+    background-color: #ff3333; 
   }
   
   .edit-button {
-    background-color: #4CAF50; /* Verde para o botão Editar */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     padding: 10px 15px;
@@ -86,6 +86,6 @@ body {
   }
   
   .edit-button:hover {
-    background-color: #45a049; /* Um verde mais escuro no hover */
+    background-color: #45a049; 
   }
   
