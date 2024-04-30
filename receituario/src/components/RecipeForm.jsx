@@ -11,7 +11,7 @@ function RecipeForm({ onSave }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSave(recipe);
-    setRecipe({ name: '', description: '', id: '' }); // Limpar form após salvar
+    setRecipe({ name: '', description: '', id: '' });
   };
 
  //return (

@@ -2,11 +2,13 @@ import React from 'react';
 import Recipe from './Recipe';
 import SearchBar from './SearchBar';
 
+
 class RecipeList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       recipes: [
+        
         { id: 1, name: 'Bolo de Cenoura', description: 'Um bolo delicioso e fácil de fazer.', ingredients: [{name: 'Cenoura', quantity: '2', unit: 'unidades'}] },
         { id: 2, name: 'Torta de Limão', description: 'Refrescante e cremosa.', ingredients: [{name: 'Limão', quantity: '3', unit: 'unidades'}] },
       ],
@@ -17,11 +19,13 @@ class RecipeList extends React.Component {
     };
   }
 
+
   handleDelete = (id) => {
     this.setState(prevState => ({
       recipes: prevState.recipes.filter(recipe => recipe.id !== id)
     }));
   }
+
 
   handleUpdate = (updatedRecipe) => {
     this.setState(prevState => ({
@@ -31,9 +35,10 @@ class RecipeList extends React.Component {
     }));
   }
 
+
   handleAddRecipe = () => {
     const newRecipe = {
-      id: Math.max(...this.state.recipes.map(r => r.id)) + 1,
+      id: Math.max(...this.state.recipes.map(r => r.id)) + 1, 
       name: this.state.newRecipeName,
       description: this.state.newRecipeDescription,
       ingredients: this.state.newIngredients,
@@ -46,6 +51,7 @@ class RecipeList extends React.Component {
     }));
   }
 
+  
   handleIngredientChange = (index, field, value) => {
     const newIngredients = this.state.newIngredients.map((ingredient, i) => {
         if (i === index) {
@@ -56,17 +62,21 @@ class RecipeList extends React.Component {
     this.setState({ newIngredients });
   }
 
+
   addIngredientField = () => {
     this.setState(prevState => ({
       newIngredients: [...prevState.newIngredients, { name: '', quantity: '', unit: '' }]
     }));
   }
 
+
   handleSearch = (query) => {
     this.setState({ searchQuery: query });
   }
 
+
   render() {
+    // Filtra receitas com base na pesquisa.
     const filteredRecipes = this.state.recipes.filter(recipe =>
       recipe.name.toLowerCase().includes(this.state.searchQuery.toLowerCase())
     );
@@ -75,6 +85,7 @@ class RecipeList extends React.Component {
       <div>
         <SearchBar onSearch={this.handleSearch} />
         <div>
+          
           <input
             value={this.state.newRecipeName}
             onChange={e => this.setState({ newRecipeName: e.target.value })}
@@ -85,6 +96,7 @@ class RecipeList extends React.Component {
             onChange={e => this.setState({ newRecipeDescription: e.target.value })}
             placeholder="Descrição"
           />
+          
           {this.state.newIngredients.map((ingredient, index) => (
             <div key={index}>
               <input
@@ -107,6 +119,7 @@ class RecipeList extends React.Component {
           <button onClick={this.addIngredientField}>Adicionar Ingrediente</button>
           <button onClick={this.handleAddRecipe}>Adicionar Receita</button>
         </div>
+        
         {filteredRecipes.map(recipe => (
           <Recipe
             key={recipe.id}
