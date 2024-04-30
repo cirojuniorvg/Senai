@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RecipeForm from './components/RecipeForm';   
 import RecipeList from './components/RecipeList';   
 import SearchBar from './components/SearchBar';    
+import Recipe from './components/Recipe';
 
 function App() {
   const [recipes, setRecipes] = useState([]);       // armazena todas as receitas.
