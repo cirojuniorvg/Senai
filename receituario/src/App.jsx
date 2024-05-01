@@ -10,15 +10,15 @@ function App() {
 
   // adiciona uma nova receita ao estado.
   const addRecipe = (recipe) => {
-    setRecipes([...recipes, recipe]);  // Adiciona a nova receita ao array de receitas existente.
+    setRecipes([...recipes, recipe]); 
   };
 
-  // Função para deletar uma receita pelo ID.
+
   const deleteRecipe = (id) => {
-    setRecipes(recipes.filter(recipe => recipe.id !== id)); // Remove a receita cujo ID corresponde ao fornecido.
+    setRecipes(recipes.filter(recipe => recipe.id !== id)); 
   };
 
-  // Função para atualizar uma receita existente.
+ 
   const updateRecipe = (updatedRecipe) => {
     const newRecipes = recipes.map(recipe => {
       if (recipe.id === updatedRecipe.id) 

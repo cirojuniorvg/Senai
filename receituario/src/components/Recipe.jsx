@@ -7,19 +7,18 @@ function Recipe({ recipe, onDelete, onUpdate }) {
  
   const [editedRecipe, setEditedRecipe] = useState({...recipe});
 
-  // Função para manipular as mudanças nos campos de texto da receita durante a edição.
   const handleEditChange = (field, value) => {
     setEditedRecipe(prev => ({ ...prev, [field]: value }));
   };
 
-  // Função para manipular as mudanças nos ingredientes da receita, atualizando individualmente cada campo.
+  // função para mudar os ingredientes da receita
   const handleIngredientChange = (index, field, value) => {
     const newIngredients = [...editedRecipe.ingredients];
     newIngredients[index][field] = value;
     setEditedRecipe(prev => ({ ...prev, ingredients: newIngredients }));
   };
 
-  // Função para controlar o início e fim do modo de edição, e para salvar a receita editada.
+  // Função q controla o início e fim do modo de edição
   const handleEdit = () => {
     if (isEditing) {
       onUpdate(editedRecipe);
@@ -35,7 +34,7 @@ function Recipe({ recipe, onDelete, onUpdate }) {
     setEditedRecipe(prev => ({ ...prev, ingredients: newIngredients }));
   };
 
-  // Renderização condicional: exibe campos de entrada se estiver no modo de edição.
+
   if (isEditing) {
     return (
       <div>
