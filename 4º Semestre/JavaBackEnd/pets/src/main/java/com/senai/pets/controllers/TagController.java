@@ -16,7 +16,7 @@ import com.senai.pets.entities.Tag;
 import com.senai.pets.repositories.TagRepository;
 
 @RestController
-@RequestMapping("/pets")
+@RequestMapping("/tags")
 public class TagController {
     
     @Autowired

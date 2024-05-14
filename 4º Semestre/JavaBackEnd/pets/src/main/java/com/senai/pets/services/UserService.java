@@ -7,6 +7,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.senai.pets.dtos.user.UserInput;
@@ -17,7 +20,7 @@ import com.senai.pets.repositories.UserRepository;
 
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService{
     @Autowired
     private UserRepository repository;
 
@@ -29,12 +32,12 @@ public class UserService {
 
     public List<UserOutput> list(Pageable page, User userExample){
 
-        ExampleMatcher matcher = ExampleMatcher
-            .matchingAny()
-            .withIgnoreCase()
-            .withStringMatcher(StringMatcher.CONTAINING);
+      // ExampleMatcher matcher = ExampleMatcher
+      //     .matchingAny()
+      //     .withIgnoreCase()
+      //     .withStringMatcher(StringMatcher.CONTAINING);
 
-            Example example = Example.of(userExample, matcher);
+      //     Example example = Example.of(userExample, matcher);
 
         return repository
         .findAll(page)
@@ -84,10 +87,24 @@ public class UserService {
         User user = new User();
         user.setEmail(input.getEmail());
         user.setUsername(input.getUsername());
-        user.setPassword(input.getPassword());
+        user.setSenha(input.getPassword());
         user.setFirstName(input.getFirstName());
         user.setLastName(input.getLastName());
         user.setPhone(input.getPhone());
         return user;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+       User user = repository.findByEmail(email);
+       if(user == null){
+        throw new UsernameNotFoundException ("User not found");
+       }
+       return org.springframework.security.core.userdetails.User
+       .builder()
+       .username(user.getUsername())
+       .password(user.getPassword())
+       .build();
     }
 }

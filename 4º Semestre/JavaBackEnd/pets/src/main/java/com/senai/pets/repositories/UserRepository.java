@@ -8,4 +8,5 @@ import com.senai.pets.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByFirstNameAndLastName(String firstName, String lastName);
+        User findByEmail(String email);
 }
