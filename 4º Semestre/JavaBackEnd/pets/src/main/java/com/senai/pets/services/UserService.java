@@ -3,13 +3,11 @@ package com.senai.pets.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.senai.pets.dtos.user.UserInput;
@@ -87,7 +85,9 @@ public class UserService implements UserDetailsService{
         User user = new User();
         user.setEmail(input.getEmail());
         user.setUsername(input.getUsername());
-        user.setSenha(input.getPassword());
+        //criptografia de senha
+        var senhaCriptografia = new BCryptPasswordEncoder().encode(input.getPassword());
+        user.setSenha(senhaCriptografia);
         user.setFirstName(input.getFirstName());
         user.setLastName(input.getLastName());
         user.setPhone(input.getPhone());

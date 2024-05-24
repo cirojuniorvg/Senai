@@ -3,6 +3,7 @@ package com.senai.pets.services;
 import java.time.Instant;
 
 import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -14,7 +15,7 @@ public class TokenService {
     private Integer expiration = 30;
     private String issuer = "Pet Store"; // Nome do projeto
 
-    public String createToken(User user){
+    public String createToken(UserDetails user){
         var algoritmo = Algorithm.HMAC256(secret);
         return JWT.create()
                 .withIssuer(issuer)
